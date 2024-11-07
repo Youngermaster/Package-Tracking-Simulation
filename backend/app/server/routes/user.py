@@ -52,14 +52,18 @@ async def delete_current_user_data(current_user: dict = Depends(get_current_user
 
 
 @router.post("/", response_description="User data added into the database")
-async def add_user_data(user: UserSchema = Body(...), current_user: dict = Depends(get_current_user)):
+async def add_user_data(user: UserSchema = Body(...),
+                        # current_user: dict = Depends(get_current_user)
+                        ):
     user = jsonable_encoder(user)
     new_user = await add_user(user)
     return ResponseModel(new_user, "User added successfully.")
 
 
 @router.get("/", response_description="Users retrieved")
-async def get_users(current_user: dict = Depends(get_current_user)):
+async def get_users(
+    # current_user: dict = Depends(get_current_user)
+    ):
     # You can access the current_user if needed, or just keep it in Depends() for protection
     users = await retrieve_users()
     if users:
@@ -68,7 +72,9 @@ async def get_users(current_user: dict = Depends(get_current_user)):
 
 
 @router.get("/{id}", response_description="User data retrieved")
-async def get_user_data(id: str, current_user: dict = Depends(get_current_user)):
+async def get_user_data(id: str, 
+                        # current_user: dict = Depends(get_current_user)
+                        ):
     user = await retrieve_user(id)
     if user:
         return ResponseModel(user, "User data retrieved successfully")
@@ -76,7 +82,9 @@ async def get_user_data(id: str, current_user: dict = Depends(get_current_user))
 
 
 @router.put("/{id}", response_description="User data updated in the database")
-async def update_user_data(id: str, req: UpdateUserModel = Body(...), current_user: dict = Depends(get_current_user)):
+async def update_user_data(id: str, req: UpdateUserModel = Body(...),
+                        #    current_user: dict = Depends(get_current_user)
+                           ):
     req = {k: v for k, v in req.dict().items() if v is not None}
     
     # Check if 'password' is in the request and hash it before updating
@@ -97,7 +105,9 @@ async def update_user_data(id: str, req: UpdateUserModel = Body(...), current_us
 
 
 @router.get("/email/{email}", response_description="User data retrieved by email")
-async def get_user_by_email(email: str, current_user: dict = Depends(get_current_user)):
+async def get_user_by_email(email: str, 
+                            # current_user: dict = Depends(get_current_user)
+                            ):
     user = await retrieve_user_by_email(email)
     if user:
         return ResponseModel(user, "User data retrieved successfully")
@@ -105,7 +115,9 @@ async def get_user_by_email(email: str, current_user: dict = Depends(get_current
 
 
 @router.delete("/{id}", response_description="User data deleted from the database")
-async def delete_user_data(id: str, current_user: dict = Depends(get_current_user)):
+async def delete_user_data(id: str, 
+                        #    current_user: dict = Depends(get_current_user)
+                           ):
     deleted_user = await delete_user(id)
     if deleted_user:
         return ResponseModel(

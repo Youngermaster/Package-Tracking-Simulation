@@ -19,14 +19,18 @@ router = APIRouter()
 
 
 @router.post("/", response_description="Sensor data added into the database")
-async def add_sensor_data(sensor: SensorSchema = Body(...), current_user: dict = Depends(get_current_user)):
+async def add_sensor_data(sensor: SensorSchema = Body(...),
+                          # current_user: dict = Depends(get_current_user)
+                          ):
     sensor = jsonable_encoder(sensor)
     new_sensor = await add_sensor(sensor)
     return ResponseModel(new_sensor, "Sensor added successfully.")
 
 
 @router.get("/", response_description="Sensors retrieved")
-async def get_sensors(current_user: dict = Depends(get_current_user)):
+async def get_sensors(
+  # current_user: dict = Depends(get_current_user)
+  ):
     sensors = await retrieve_sensors()
     if sensors:
         return ResponseModel(sensors, "Sensors data retrieved successfully")
@@ -34,7 +38,9 @@ async def get_sensors(current_user: dict = Depends(get_current_user)):
 
 
 @router.get("/{id}", response_description="Sensor data retrieved")
-async def get_sensor_data(id: str, current_user: dict = Depends(get_current_user)):
+async def get_sensor_data(id: str,
+                          # current_user: dict = Depends(get_current_user)
+                          ):
     sensor = await retrieve_sensor(id)
     if sensor:
         return ResponseModel(sensor, "Sensor data retrieved successfully")
@@ -42,7 +48,9 @@ async def get_sensor_data(id: str, current_user: dict = Depends(get_current_user
 
 
 @router.put("/{id}", response_description="Sensor data updated in the database")
-async def update_sensor_data(id: str, req: UpdateSensorModel = Body(...), current_user: dict = Depends(get_current_user)):
+async def update_sensor_data(id: str, req: UpdateSensorModel = Body(...), 
+                            #  current_user: dict = Depends(get_current_user)
+                             ):
     req = {k: v for k, v in req.dict().items() if v is not None}
     updated_sensor = await update_sensor(id, req)
     if updated_sensor:
@@ -58,7 +66,9 @@ async def update_sensor_data(id: str, req: UpdateSensorModel = Body(...), curren
 
 
 @router.delete("/{id}", response_description="Sensor data deleted from the database")
-async def delete_sensor_data(id: str, current_user: dict = Depends(get_current_user)):
+async def delete_sensor_data(id: str, 
+                            #  current_user: dict = Depends(get_current_user)
+                             ):
     deleted_sensor = await delete_sensor(id)
     if deleted_sensor:
         return ResponseModel(

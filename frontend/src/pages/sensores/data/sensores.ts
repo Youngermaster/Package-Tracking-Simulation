@@ -1,22 +1,20 @@
-export const casas = [
+export const sensores = [
   {
-    id: 'Casa 1',
-    title:
-      "Cra #123 - 123, Barrio 1, Ciudad 1, Departamento 1, Colombia",
+    id: 'Sensor de Húmedad',
+    title: 'Cra #123 - 123, Barrio 1, Ciudad 1, Departamento 1, Colombia',
     status: 'in progress',
     label: 'documentation',
     priority: 'medium',
   },
   {
-    id: 'Casa 2',
-    title:
-      'Cra #213 - 123, Barrio 1, Ciudad 1, Departamento 1, Colombia',
+    id: 'Sensor de Temperatura',
+    title: 'Cra #213 - 123, Barrio 1, Ciudad 1, Departamento 1, Colombia',
     status: 'backlog',
     label: 'documentation',
     priority: 'medium',
   },
   {
-    id: 'Casa 3',
+    id: 'Sensor de Luz',
     title: 'Dirección de la casa 3',
     status: 'todo',
     label: 'bug',

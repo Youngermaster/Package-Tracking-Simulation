@@ -165,7 +165,7 @@ export default function Dashboard() {
           defaultValue='overview'
           className='space-y-4'
         >
-          <div className='w-full overflow-x-scroll pb-2'>
+          <div className='w-full pb-2'>
             <TabsList>
               <TabsTrigger value='overview'>Overview</TabsTrigger>
               <TabsTrigger value='analytics'>Analytics</TabsTrigger>
@@ -296,9 +296,9 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
             </div>
-            <Card className='col-span-1 lg:col-span-4'>
+            {/* <Card className='col-span-1 lg:col-span-4'>
               <div ref={chartContainerRef} />
-            </Card>
+            </Card> */}
           </TabsContent>
         </Tabs>
       </LayoutBody>

@@ -1,32 +1,40 @@
 from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import Optional
 
 
 class MeasurementSchema(BaseModel):
-    name: str = Field(...)
-    emission_gco2_per_km: float = Field(...)
-    image_url: str = Field(...)
+    fecha_hora: datetime = Field(...)
+    temperatura: float = Field(..., gt=-273.15)  # Minimum is absolute zero
+    latitud: float = Field(..., ge=-90, le=90)
+    longitud: float = Field(..., ge=-180, le=180)
+    id_sensor: str = Field(...)  # ID of the sensor
 
     class Config:
         schema_extra = {
             "example": {
-                "name": "Carro",
-                "emission_gco2_per_km": 263,
-                "image_url": "http://localhost:8000/static/icons/Car.png",
+                "fecha_hora": "2024-11-06T12:30:00",
+                "temperatura": 25.0,
+                "latitud": 6.2518,
+                "longitud": -75.5636,
+                "id_sensor": "sensor_id_example"
             }
         }
 
 
 class UpdateMeasurementModel(BaseModel):
-    name: str = Field(...)
-    emission_gco2_per_km: float = Field(...)
-    image_url: str = Field(...)
+    fecha_hora: Optional[datetime]
+    temperatura: Optional[float]
+    latitud: Optional[float]
+    longitud: Optional[float]
+    id_sensor: Optional[str]
 
     class Config:
         schema_extra = {
             "example": {
-                "name": "Carro",
-                "emission_gco2_per_km": 265,
-                "image_url": "https://links.papareact.com/updated",
+                "temperatura": 26.5,
+                "latitud": 6.2520,
+                "longitud": -75.5637
             }
         }
 

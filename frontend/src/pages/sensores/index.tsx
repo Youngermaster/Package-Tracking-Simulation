@@ -4,9 +4,9 @@ import { UserNav } from '@/components/user-nav'
 import { Layout, LayoutBody, LayoutHeader } from '@/components/custom/layout'
 import { DataTable } from './components/data-table'
 import { columns } from './components/columns'
-import { casas } from './data/casas'
+import { sensores } from './data/sensores'
 
-export default function Casas() {
+export default function Semsores() {
   return (
     <Layout>
       {/* ===== Top Heading ===== */}
@@ -25,12 +25,12 @@ export default function Casas() {
               Bienvenido de nuevo
             </h2>
             <p className='text-muted-foreground'>
-              Estas son las casas registradas en la plataforma.
+              Estas son los sensores registradas en la plataforma.
             </p>
           </div>
         </div>
         <div className='-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-x-12 lg:space-y-0'>
-          <DataTable data={casas} columns={columns} />
+          <DataTable data={sensores} columns={columns} />
         </div>
       </LayoutBody>
     </Layout>

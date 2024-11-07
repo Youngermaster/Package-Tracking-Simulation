@@ -4,6 +4,7 @@ from server.routes.authentication import router as AuthRouter
 from server.routes.user import router as UserRouter
 from server.routes.sensor import router as SensorRouter
 from server.routes.package import router as PackageRouter
+from server.routes.measurement import router as MeasurementRouter
 from decouple import config
 
 
@@ -29,8 +30,8 @@ app.include_router(AuthRouter, tags=["Authentication"])
 app.include_router(UserRouter, tags=["User"], prefix="/user")
 app.include_router(SensorRouter, tags=["Sensor"], prefix="/sensor")
 app.include_router(PackageRouter, tags=["Package"], prefix="/package")
-
+app.include_router(MeasurementRouter, tags=["Measurement"], prefix="/measurement")
 
 @app.get("/", tags=["Root"])
 async def read_root():
-    return {"message": "Bienvenido al monitoreo de paquetes!"}
+    return {"message": "Welcome to the Package Tracking Simulation!"}
