@@ -10,6 +10,8 @@ from server.database.user import (
     retrieve_user_by_email,
     retrieve_users,
     update_user,
+    retrieve_packages_by_user_id,
+    retrieve_packages_by_user_email
 )
 
 from server.models.user import (
@@ -49,6 +51,23 @@ async def delete_current_user_data(current_user: dict = Depends(get_current_user
     if deleted_user:
         return ResponseModel("User removed", "User deleted successfully")
     return ErrorResponseModel("An error occurred", 404, "There was an error deleting the user.")
+
+
+
+@router.get("/{user_id}/packages", response_description="Retrieve packages by user ID")
+async def get_packages_by_user_id(user_id: str):
+    packages = await retrieve_packages_by_user_id(user_id)
+    if packages:
+        return ResponseModel(packages, "Packages data retrieved successfully")
+    return ResponseModel([], "No packages found for this user ID")
+
+
+@router.get("/email/{user_email}/packages", response_description="Retrieve packages by user email")
+async def get_packages_by_user_email(user_email: str):
+    packages = await retrieve_packages_by_user_email(user_email)
+    if packages:
+        return ResponseModel(packages, "Packages data retrieved successfully")
+    return ResponseModel([], "No packages found for this user email")
 
 
 @router.post("/", response_description="User data added into the database")

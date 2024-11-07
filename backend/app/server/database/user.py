@@ -1,5 +1,6 @@
 from bson.objectid import ObjectId
 from .config import database
+from .package import package_collection, package_helper
 
 user_collection = database.get_collection("users_collection")
 
@@ -73,3 +74,55 @@ async def update_user_points(user_id: str, points: float):
     if updated_user.modified_count:
         return True
     return False
+
+
+async def retrieve_packages_by_user_id(user_id: str):
+    """Retrieve all packages associated with a specific user ID."""
+    packages = []
+    async for package in package_collection.find({"id_cliente": user_id}):
+        packages.append(package_helper(package))
+    return packages
+
+
+async def retrieve_packages_by_user_email(user_email: str):
+    """Obtener todos los paquetes asociados a un correo electrónico específico del usuario usando agregación."""
+    packages = []
+    async for package in package_collection.aggregate([
+        {
+            # Realiza un lookup para unir los documentos de paquetes con la colección de usuarios (users_collection)
+            # utilizando id_cliente en paquetes y _id en usuarios como campos de unión.
+            "$lookup": {
+                "from": "users_collection",  # La colección con la que se unirá
+                # Define una variable clientId que toma el valor de id_cliente en paquetes
+                "let": {"clientId": "$id_cliente"},
+                # Define una pipeline para filtrar los usuarios basados en la conversión de ObjectId y el email del usuario
+                "pipeline": [
+                    {"$match": {
+                        "$expr": {
+                            "$and": [
+                                # Compara _id en la colección de usuarios con clientId (convertido a ObjectId)
+                                {"$eq": ["$_id", {"$toObjectId": "$$clientId"}]},
+                                # Compara el email en usuarios con el user_email proporcionado
+                                {"$eq": ["$email", user_email]}
+                            ]
+                        }
+                    }}
+                ],
+                "as": "user_info"  # Nombra los datos unidos como user_info en el documento de salida
+            }
+        },
+        {
+            # Descompone el array user_info para convertirlo en un objeto único
+            "$unwind": "$user_info"
+        },
+        {
+            # Opcionalmente excluye el campo user_info del resultado final para simplificar la salida
+            "$project": {
+                "user_info": 0  # Establece en 0 para excluir user_info de la salida
+            }
+        }
+    ]):
+        # Añade cada paquete que coincida, formateado por la función package_helper, a la lista de resultados
+        packages.append(package_helper(package))
+    
+    return packages
