@@ -6,7 +6,7 @@ BASE_URL = "http://192.168.20.94:8001"
 # 1. Login
 login_endpoint = f"{BASE_URL}/login"
 login_data = {
-    "username": "john.doe@ecodrive.com",  # Your user's email
+    "username": "john.doe@package-tracking.com",  # Your user's email
     "password": "securepassword"         # Your user's password
 }
 

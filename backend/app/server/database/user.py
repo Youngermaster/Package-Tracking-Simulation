@@ -8,7 +8,10 @@ def user_helper(user) -> dict:
     return {
         "id": str(user["_id"]),
         "name": user["name"],
+        "lastname": user["lastname"],
         "email": user["email"],
+        "phone": user["phone"],
+        "address": user["address"],
         "password": user.get("password", ""),
         "points": user["points"],
     }

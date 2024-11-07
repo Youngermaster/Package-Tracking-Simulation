@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 
-class VehicleSchema(BaseModel):
+class MeasurementSchema(BaseModel):
     name: str = Field(...)
     emission_gco2_per_km: float = Field(...)
     image_url: str = Field(...)
@@ -16,7 +16,7 @@ class VehicleSchema(BaseModel):
         }
 
 
-class UpdateVehicleModel(BaseModel):
+class UpdateMeasurementModel(BaseModel):
     name: str = Field(...)
     emission_gco2_per_km: float = Field(...)
     image_url: str = Field(...)

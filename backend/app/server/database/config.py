@@ -7,4 +7,4 @@ MONGO_URL = config(
 )
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
-database = client.ecodrive
+database = client.package_tracking
