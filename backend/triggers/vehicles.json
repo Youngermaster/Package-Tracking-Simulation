@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Carro",
+    "emission_gco2_per_km": 263,
+    "image_url": "http://localhost:8000/static/icons/Car.png"
+  },
+  {
+    "name": "Bicicleta",
+    "emission_gco2_per_km": 0,
+    "image_url": "http://localhost:8000/static/icons/Bike.png"
+  },
+  {
+    "name": "Bus",
+    "emission_gco2_per_km": 630.26,
+    "image_url": "http://localhost:8000/static/icons/Bus.png"
+  },
+  {
+    "name": "Moto",
+    "emission_gco2_per_km": 30.6,
+    "image_url": "http://localhost:8000/static/icons/Motorcycle.png"
+  },
+  {
+    "name": "Taxi",
+    "emission_gco2_per_km": 249.5,
+    "image_url": "http://localhost:8000/static/icons/Car.png"
+  }
+]

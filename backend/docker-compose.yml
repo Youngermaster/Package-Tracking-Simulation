@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: . # Specifies the directory containing the Dockerfile
+      dockerfile: Dockerfile # Specifies the name of the Dockerfile
+    environment:
+      MONGO_URL: ${MONGO_URL} # MongoDB connection URL
+      SECRET_KEY: ${SECRET_KEY} # Secret key used for encryption or token generation
+      PORT: ${PORT} # Port on which the backend service will run
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES} # Token expiration time
+      PROJECT_ENVIRONMENT: ${PROJECT_ENVIRONMENT} # Project environment (DEVELOPMENT/RELEASE)
+      # Set the timezone to America/Bogota
+      TZ: "America/Bogota"
+    ports:
+      - "${PORT}:${PORT}" # Maps the port from the container to the host

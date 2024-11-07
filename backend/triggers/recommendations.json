@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Apágalo",
+    "description": "Apaga las luces cuando la luz natural sea suficiente y cuando salgas de la habitación. ¡Es así de simple!",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights.jpeg"
+  },
+  {
+    "title": "Control del Clima",
+    "description": "Mantén tu sistema de temperatura en un ajuste moderado mientras estés en la habitación.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights-1.jpeg"
+  },
+  {
+    "title": "Ventanas Desaprovechadas",
+    "description": "¡Usa tus ventanas sabiamente! Si tu sistema de control de clima está encendido, ciérralas... si necesitas un poco de aire fresco, apaga la calefacción o el aire acondicionado.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights-2.jpeg"
+  },
+  {
+    "title": "Minimiza la Carga Eléctrica",
+    "description": "Reduce el número de electrodomésticos que estás utilizando y ahorrarás mucho en energía. Por ejemplo, comparte tu mininevera con los compañeros de cuarto y minimiza el número de impresoras en tu oficina.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights-3.jpeg"
+  },
+  {
+    "title": "Energía Fantasma",
+    "description": "¿Sabías que muchos electrónicos continúan usando energía incluso cuando están apagados? Esto es cierto para cualquier cargador, televisor, impresora, etc. Usa una regleta de enchufes para desenchufar fácilmente estos electrónicos cuando no estén en uso.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights.jpeg"
+  },
+  {
+    "title": "Dale un Descanso",
+    "description": "Apaga tu computadora cuando no estés cerca. Una computadora apagada consume al menos un 65% menos de energía que una computadora encendida o en espera en un protector de pantalla.",
+    "image_url": "http://localhost:8000/static/recommendations/use-stairs-2.jpeg"
+  },
+  {
+    "title": "Usa las Escaleras",
+    "description": "Usa las escaleras siempre que sea posible. Los ascensores consumen electricidad. Tú, por otro lado, no.",
+    "image_url": "http://localhost:8000/static/recommendations/use-stairs.jpeg"
+  },
+  {
+    "title": "Lavandería Completa",
+    "description": "Solo haz cargas completas de ropa y utiliza el ciclo de colores brillantes siempre que sea posible.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights.jpeg"
+  },
+  {
+    "title": "Duchas Más Cortas",
+    "description": "Intenta tomar duchas más cortas. Cuanta menos agua caliente utilices, menos energía se necesitará para calentar el agua.",
+    "image_url": "http://localhost:8000/static/recommendations/turn-off-lights.jpeg"
+  }
+]

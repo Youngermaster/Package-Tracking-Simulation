@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:latest # The Docker image to use for the MongoDB service
+    container_name: mongodb # The name of the MongoDB container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME} 
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      # Specifies the directories to mount inside the container
+      - mongodb-data:/data/db # Mounts the 'mongodb-data' volume to '/data/db' inside the container
+    restart: always # Always restart the container if it stops
+
+  # EMQX Broker service
+  emqx:
+    image: emqx/emqx:latest # The Docker image to use for the EMQX service
+    container_name: emqx # The name of the EMQX container
+    ports:
+      # Specifies the ports to expose
+      - "1883:1883" # MQTT protocol port
+      - "8083:8083" # WebSocket for MQTT
+      - "8084:8084" # WSS (WebSocket Secure) for MQTT
+      - "8883:8883" # MQTTS (MQTT over SSL/TLS)
+      - "18083:18083" # EMQX Dashboard port
+    restart: always # Always restart the container if it stops
+
+volumes:
+  # Defines volumes
+  mongodb-data:

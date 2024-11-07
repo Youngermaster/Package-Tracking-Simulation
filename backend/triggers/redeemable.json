@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Bono 10.000 Frisby",
+    "points_required": 100,
+    "availability": true,
+    "expiry_date": null,
+    "category": "Comida",
+    "image_url": "https://wpa.aquarius.frisby.com.co/wp-content/uploads/2023/04/post-1024x1024.png"
+  },
+  {
+    "title": "SubWay del día",
+    "points_required": 500,
+    "availability": true,
+    "expiry_date": "31-12-2023",
+    "category": "Comida",
+    "image_url": "https://cazaofertas.com.co/wp-content/uploads/2023/03/Subway-Duo-del-Dia-2023.jpeg"
+  },
+  {
+    "title": "Mes Gratis de Platzi",
+    "points_required": 1200,
+    "availability": true,
+    "expiry_date": "30-06-2023",
+    "category": "Educación",
+    "image_url": "https://balechon.com/wp-content/uploads/2021/07/placzi.png"
+  },
+  {
+    "title": "Viaje a San Andrés",
+    "points_required": 2269,
+    "availability": false,
+    "expiry_date": "31-12-2024",
+    "category": "Viajes",
+    "image_url": "https://losmolinos.com.co/wp-content/uploads/2021/01/20.-Post_SorteoSanAndre%CC%81s.jpg"
+  },
+  {
+    "title": "Entrada de cine 4DX",
+    "points_required": 400,
+    "availability": true,
+    "expiry_date": "30-11-2023",
+    "category": "Entretenimiento",
+    "image_url": "https://caracoltv.brightspotcdn.com/dims4/default/78f8bbe/2147483647/strip/true/crop/5927x3927+0+0/resize/1000x663!/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.amazonaws.com%2F4b%2F83%2Fc32d5e0c42d0b7d0dfea07d2b6df%2Fcombo-miercoles.jpg"
+  },
+  {
+    "title": "Cena en Restaurante Italiano",
+    "points_required": 750,
+    "availability": true,
+    "expiry_date": null,
+    "category": "Comida",
+    "image_url": "https://cazaofertas.com.mx/wp-content/uploads/2023/01/Italiannis-ilimitado-240123-00.jpg"
+  },
+  {
+    "title": "Kit de belleza premium",
+    "points_required": 300,
+    "availability": false,
+    "expiry_date": "28-02-2024",
+    "category": "Belleza",
+    "image_url": "https://www.circulodebelleza.com/cdn/shop/files/Promociones_navidenas_CDB_2023_NF_Post-17.png?v=1701300188"
+  },
+  {
+    "title": "Descuento 30% en tenis Adidas",
+    "points_required": 600,
+    "availability": true,
+    "expiry_date": "31-07-2023",
+    "category": "Moda",
+    "image_url": "https://www.theoutletstoresalicante.es/wp-content/uploads/2022/04/Adidas_RRSS_1200x1200_ALICANTE.jpg"
+  },
+  {
+    "title": "Libro Best Seller",
+    "points_required": 250,
+    "availability": true,
+    "expiry_date": "15-10-2023",
+    "category": "Libros",
+    "image_url": "https://cazaofertas.com.mx/wp-content/uploads/2016/05/promociones-tusquets-el-sotano.jpg"
+  },
+  {
+    "title": "Suscripción a Spotify por un año",
+    "points_required": 1400,
+    "availability": true,
+    "expiry_date": "31-01-2024",
+    "category": "Entretenimiento",
+    "image_url": "https://i.blogs.es/9e4b87/email-4---spanish-latam/650_1200.png"
+  }
+]
