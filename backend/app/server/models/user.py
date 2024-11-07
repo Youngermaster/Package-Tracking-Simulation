@@ -9,7 +9,6 @@ class UserSchema(BaseModel):
     phone: str = Field(..., max_length=20)
     address: str = Field(..., max_length=250)
     password: str = Field(...)
-    points: float = Field(default=0.0)
 
     class Config:
         schema_extra = {
@@ -19,8 +18,7 @@ class UserSchema(BaseModel):
                 "email": "jane.doe@package-tracking.com",
                 "phone": "123-456-7890",
                 "address": "123 Main St, Anytown, USA",
-                "password": "securepassword",
-                "points": 0.0
+                "password": "securepassword"
             }
         }
 
@@ -32,7 +30,6 @@ class UpdateUserModel(BaseModel):
     phone: Optional[str]
     address: Optional[str]
     password: Optional[str]
-    points: Optional[float]
 
     class Config:
         schema_extra = {
@@ -42,8 +39,7 @@ class UpdateUserModel(BaseModel):
                 "email": "jane.doe@package-tracking.com",
                 "phone": "987-654-3210",
                 "address": "456 Elm St, New City, USA",
-                "password": "newpassword",
-                "points": 10.0
+                "password": "newpassword"
             }
         }
 

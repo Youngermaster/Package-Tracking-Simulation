@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Body, Depends, HTTPException, status
+from fastapi import APIRouter, Body, Depends, HTTPException, status, Query
 from fastapi.encoders import jsonable_encoder
 from server.database.package import (
     add_package,
@@ -6,6 +6,8 @@ from server.database.package import (
     retrieve_package,
     retrieve_packages,
     update_package,
+    retrieve_packages_by_sensor_id,
+    retrieve_packages_by_sensor_type
 )
 from server.models.package import (
     ErrorResponseModel,
@@ -78,3 +80,24 @@ async def delete_package_data(id: str,
     return ErrorResponseModel(
         "An error occurred", 404, "Package with id {0} doesn't exist".format(id)
     )
+
+
+@router.get("/sensor/type", response_description="Retrieve packages by sensor type")
+async def get_packages_by_sensor_type(sensor_type: str = Query(..., description="Type of sensor to filter packages by"),
+                                      # current_user: dict = Depends(get_current_user)
+                                      ):
+    packages = await retrieve_packages_by_sensor_type(sensor_type)
+    if packages:
+        return ResponseModel(packages, "Packages data retrieved successfully")
+    return ResponseModel([], "No packages found for this sensor type")
+
+
+@router.get("/sensor/{sensor_id}", response_description="Retrieve packages by sensor ID")
+async def get_packages_by_sensor_id(sensor_id: str,
+                                    # current_user: dict = Depends(get_current_user)
+                                    ):
+    packages = await retrieve_packages_by_sensor_id(sensor_id)
+    if packages:
+        return ResponseModel(packages, "Packages data retrieved successfully")
+    return ResponseModel([], "No packages found for this sensor ID")
+
