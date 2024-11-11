@@ -20,9 +20,9 @@ Modelo entidad relación con retroalimentación dada en la entrega número 2.
   \hline
   \textbf{Tipo} & \textbf{Información} & \textbf{Frecuencia} & \textbf{Criticidad} & \textbf{Latencia} & \textbf{Tamaño} \\
   \hline
-  Lectura & Cada entidad tiene un conjunto de operaciones CRUD. Las más importantes son las consultas en tiempo real de los estados de los sensores. & La lectura para clientes conectados es alta para la vista de métricas en tiempo real. & La lectura es crítica para las métricas, ya que su consulta es esencial para la empresa. & Mínima de 30 segundos, suficiente para el análisis de eventos relevantes. & Alcanzan su máximo cuando un cliente consulta información que supera el límite del BSON (Max: 16MB). \\
+  Lectura & Cada entidad tiene un conjunto de operaciones CRUD. Las más importantes son las consultas en tiempo real de los estados de los sensores. & Cada segundo. & La lectura es crítica para las métricas, ya que su consulta es esencial para la empresa. & Mínima de 30 segundos, suficiente para el análisis de eventos relevantes. & Alcanzan su máximo cuando un cliente consulta información que supera el límite del BSON (Max: 16MB). \\
   \hline
-  Escritura & Las creaciones de documentos son orgánicas, excepto para las mediciones. & Frecuencia alta debido a las mediciones automáticas constantes. & Es crítica porque una mala métrica puede implicar la pérdida de un paquete. & Mínima de 1 segundo por medición para mantener la calidad. & La escritura más relevante es la del paquete, pero en frecuencia, destacan las mediciones. \\
+  Escritura & Las creaciones de documentos son orgánicas, excepto para las mediciones. & Cada segundo. & Es crítica porque una mala métrica puede implicar la pérdida de un paquete. & Mínima de 1 segundo por medición para mantener la calidad. & La escritura más relevante es la del paquete, pero en frecuencia, destacan las mediciones. \\
   \hline
   Lectura por pipeline & Involucra varias entidades en una consulta. & Frecuencia de una vez por conexión. & Facilita la navegación del cliente. & Máximo de 4 segundos para mantener una buena experiencia de usuario. & No supera el máximo de BSON debido al paginado implementado. \\
   \hline
